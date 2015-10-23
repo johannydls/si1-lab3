@@ -1,0 +1,163 @@
+@(anuncios: List[Anuncio])
+
+@main("Lista de Anuncios") {
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <title>Encontro Musical</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootswatch.min.css")">
+
+            <!--font icon-->
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/elegant-icons-style.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/font-awesome.min.css")">
+
+        <link rel="short icon" type="image/png" href="@routes.Assets.at("images/EncontroMusical.ico")">
+
+    </head>
+
+    <body>
+            <!--NAVBAR-->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="active navbar-brand" href="/">EM <span class="sr-only">(current)</span></a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class=""><a href="/meusAnuncios">Meus an&uacute;ncios</a></li>
+                        <li class=""><a href="/anuncios">Todos os an&uacute;ncios</a></li>
+                        <li class=""><a href="/sobre">Sobre o sistema</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Pesquisar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+            <!--CAPA DA PAGINA-->
+
+
+
+        <div class="container">
+            <div class="starter-template page-title">
+
+                <div class="jumbotron">
+                    <h1>Encontro Musical</h1>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <img src="@routes.Assets.at("images/music-icon.png")" alt="">
+                        </div>
+                    </div>
+
+                    <p>A melhor rede social para marcar encontros musicais!</p>
+                    <br>
+                    <p><a href="@routes.Application.formNovoAnuncio" class="btn btn-primary btn-lg">Criar An&uacute;ncio!</a></p>
+                </div>
+
+            </div>
+        </div>
+
+            <!--PREVIA DE LISTA DE ANUNCIOS-->
+
+        <div class="container starter-template">
+        @if(anuncios.isEmpty) {
+            <h3>N&atilde;o h&aacute; an&uacute;ncios cadastrados!</h3>
+        } else {
+
+            <div class="starter-template jumbotron">
+
+                <h4>An&uacute;ncios cadastrados:</h4>
+
+                <table class="table table-striped table-advance table-hover">
+                    <tbody>
+                        <tr>
+                            <th><span class="glyphicon glyphicon-user" aria-hidden="true"></span> T&iacute;tulo</th>
+                            <th><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Data </th>
+                            <th><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Cidade</th>
+                            <th><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Bairro</th>
+                            <th>Aberto?</th>
+                            <th><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> A&ccedil;&atilde;o</th>
+                        </tr>
+                        @for(anuncio <- anuncios.reverse) {
+                            <tr>
+                                <td>@anuncio.getTitulo</td>
+                                <td>@anuncio.getDataDePostagem</td>
+                                <td>@anuncio.getCidade</td>
+                                <td>@anuncio.getBairro</td>
+                                <td>
+                                @if(anuncio.isFinalizado) {
+                                    N&Atilde;O!
+                                } else {
+                                    SIM!
+                                }
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="btn btn-success" href="/anuncios">
+                                            <span class="glyphicon glyphicon-thumbs-up icon-white" aria-hidden="true"></span>
+                                        </a>
+                                    </div>
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+
+
+            </div>
+            <hr>
+
+            }
+
+        </div>
+
+
+            <!--SCRIPTS-->
+        <script src="@routes.Assets.at("javascripts/jquery-1.11.3.min.js")"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
+        <script src="@routes.Assets.at("javascripts/bootswatch.js")"></script>
+
+            <!--STYLE-->
+        <style>
+        body {
+        padding-top: 50px;
+        }
+
+        .page-title {
+            text-align: center;
+        }
+
+        .starter-template {
+        padding: 40px 15px;
+
+        }
+
+        .time-line {
+        width:900px;
+        height:400px;
+        overflow:auto;
+        border: 0.5px;
+        }
+        </style>
+
+    </body>
+}

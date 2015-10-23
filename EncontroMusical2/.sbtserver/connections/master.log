@@ -1,0 +1,37 @@
+New log file opened at Tue Oct 20 16:02:52 GMT-03:00 2015 by 1936@Johanny-PC
+Taking next connection to: 49950
+New client attempting to connect on port: 49951-49950
+  Address = /192.168.56.1:49950
+This client on port 49951 has uuid 5cec98df-2b03-4f76-9ff8-c114342d2cbc configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-5cec98df-2b03-4f76-9ff8-c114342d2cbc
+Taking next connection to: 49950
+New client attempting to connect on port: 49952-49950
+  Address = /192.168.56.1:49950
+Handshake exception on socket: 49952
+sbt.impl.ipc.HandshakeException: Unable to perform handshake
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:46)
+	at sbt.impl.ipc.MultiClientServer.<init>(IPC.scala:150)
+	at sbt.server.SbtServerSocketHandler$$anon$1.run(SbtServerSocketHandler.scala:43)
+Caused by: java.net.SocketException: Software caused connection abort: recv failed
+	at java.net.SocketInputStream.socketRead0(Native Method)
+	at java.net.SocketInputStream.socketRead(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.net.SocketInputStream.read(Unknown Source)
+	at java.io.BufferedInputStream.fill(Unknown Source)
+	at java.io.BufferedInputStream.read(Unknown Source)
+	at java.io.DataInputStream.readInt(Unknown Source)
+	at sbt.impl.ipc.Peer.receive(IPC.scala:95)
+	at sbt.impl.ipc.Peer.handshake(IPC.scala:49)
+	... 2 more
+Taking next connection to: 49950
+New client attempting to connect on port: 49953-49950
+  Address = /192.168.56.1:49950
+This client on port 49953 has uuid 045d7164-a564-4602-aa48-cf4ae3ae5112 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-5cec98df-2b03-4f76-9ff8-c114342d2cbc, activator-045d7164-a564-4602-aa48-cf4ae3ae5112
+Taking next connection to: 49950
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 1936@Johanny-PC logs at Tue Oct 20 16:05:53 GMT-03:00 2015, goodbye.

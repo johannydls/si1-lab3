@@ -1,0 +1,114 @@
+@(anuncios: List[Anuncio])
+
+@main("Lista de Anuncios") {
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <title>Encontro Musical</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+
+        <link rel="stylesheet" href="../assets/css/bootswatch.min.css">
+
+        <link rel="short icon" type="image/png" href="@routes.Assets.at("images/EncontroMusical.ico")">
+
+    </head>
+
+    <body>
+
+        <!--NAVBAR-->
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="active navbar-brand" href="/">EM <span class="sr-only">(current)</span></a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/meusAnuncios">Meus an&uacute;ncios</a></li>
+                        <li class="active"><a href="/anuncios">Todos os an&uacute;ncios</a></li>
+                        <li><a href="/sobre">Sobre o sistema</a></li>
+                    </ul>
+                    <form class="navbar-form navbar-right" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                        </div>
+                        <button type="submit" class="btn btn-default">Pesquisar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <!--LISTA DOS ANUNCIOS-->
+        <div class="container starter-template">
+
+
+
+        @if(anuncios.isEmpty) {
+            <h3>N&atilde;o h&aacute; an&uacute;ncios cadastrados!</h3>
+        } else {
+
+            <div class="jumbotron">
+                <h1>An&uacute;ncios cadastrados</h1>
+            </div>
+
+            <div class="list-group">
+            @for(anuncio <- anuncios.reverse) {
+                <a href="#" class="list-group-item">
+                    <h3 class="list-group-item-heading">@anuncio.getTitulo</h3>
+                    <p class="list-group-item-text">
+                    <p><strong>Cidade:</strong> @anuncio.getCidade -
+                        <strong>Bairro:</strong> @anuncio.getBairro</p>
+
+                    <p><strong>Descri&ccedil;&atilde;o:</strong> @anuncio.getDescricao</p>
+                    <p><strong>Instrumentos:</strong> @anuncio.getInstrumentos</p>
+                    <p><strong>Estilos pretendidos:</strong> @anuncio.getEstilosPretendidos</p>
+                    <p><strong>Estilos n&atilde;o pretendidos:</strong> @anuncio.getEstilosNaoPretendidos</p>
+                    <p><strong>Op&ccedil;&atilde;o pretendida:</strong> @anuncio.getOpcaoQueBusca</p>
+                    <p><strong>Contato(s):</strong> @anuncio.getFormasDeContato</p>
+                    <p><strong>Data de publica&ccedil;&atilde;o:</strong> @anuncio.getDataDePostagem</p>
+
+                </a>
+            }
+            </div>
+        }
+        </div>
+
+
+        <!--SCRIPTS-->
+        <script src="@routes.Assets.at("javascripts/jquery-1.11.3.min.js")"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap.min.js")"></script>
+        <script src="@routes.Assets.at("javascripts/bootswatch.js")"></script>
+
+        <!--STYLE-->
+        <style>
+        body {
+        padding-top: 50px;
+        }
+
+        .starter-template {
+        padding: 40px 15px;
+        text-align: center;
+        }
+
+        .time-line {
+        width:900px;
+        height:400px;
+        overflow:auto;
+        border: 0.5px;
+        }
+        </style>
+
+    </body>
+
+
+
+}
