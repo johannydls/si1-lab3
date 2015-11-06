@@ -68,9 +68,10 @@ public class Anuncio extends Model {
         this.dataDePostagem = getDateTime();
     }
 
-    public Anuncio(String id, String t, String d, String c, String b, String i, String o, String cont) {
+    public Anuncio(String id, String cod, String t, String d, String c, String b, String i, String o, String cont) {
         this.id = id;
         this.titulo = t;
+        this.codigoDeAcesso = cod;
         this.descricao = d;
         this.cidade = c;
         this.bairro = b;

@@ -2,7 +2,7 @@
 @import helper._
 @import helper.twitterBootstrap._
 
-@main("Criar anúncio") {
+@main("Criar anuncio") {
 
     <head>
         <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
@@ -14,7 +14,7 @@
 
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootswatch.min.css")">
 
-            <!--font icon-->
+        <!--font icon-->
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/elegant-icons-style.css")">
         <link rel="stylesheet" href="@routes.Assets.at("stylesheets/font-awesome.min.css")">
 
@@ -98,9 +98,9 @@
                                 <p>Informa&ccedil;&otilde;es do anunciante:</p>
 
                                 <div class="form-group">
-                                    <label for="inputCidade" class="col-sm-2 control-label">Cidade</label>
+                                    <label for="inputCidade" class="col-sm-2 control-label">Cidade - UF</label>
                                     <div class="col-sm-10">
-                                        <input required name="cidade" type="text" class="form-control" id="inputCidade" placeholder="Digite a cidade em que voc&ecirc; mora">
+                                        <input required name="cidade" type="text" class="form-control" id="inputCidade" placeholder="Digite a cidade e a sigla do estado em que voc&ecirc; mora">
                                         <br>
                                     </div>
                                 </div>

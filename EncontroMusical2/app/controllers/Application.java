@@ -1,6 +1,9 @@
 package controllers;
 
 import com.avaje.ebean.Ebean;
+import play.db.ebean.*;
+import javax.persistence.*;
+
 import models.Anuncio;
 import play.data.Form;
 import play.mvc.Controller;
@@ -15,6 +18,7 @@ import java.util.List;
 public class Application extends Controller {
 
     public static Result index() {
+
         List<Anuncio> anuncios = Ebean.createQuery(Anuncio.class).findList();
         return ok(index.render(anuncios));
     }
